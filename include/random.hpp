@@ -30,13 +30,13 @@ class Random{
 		  *
 		  *
 		  */
+
+		static Random * instancia;
 		unsigned long SEED;
 		const unsigned long int MASK = 2147483647L;
 		const unsigned long int PRIME = 65539L;
 		const double SCALE = 0.4656612875e-9D;
 
-
-	public:
 
 		/**
 		  * @brief Constructor sin parámetros que iniciliza la semilla a un valor aleatorio
@@ -54,6 +54,15 @@ class Random{
 		Random(const unsigned long seed);
 
 
+	public:
+
+		static Random * getInstance();
+		static Random * getInstance(const unsigned seed);
+
+		~Random();
+
+		Random(const Random & otro) = delete;
+		Random & operator = (const Random & otro) = delete;
 
 		/**
 		  * @brief Obtener el valor de la semilla
