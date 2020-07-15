@@ -56,12 +56,43 @@ class Random{
 
 	public:
 
+		/**
+		  * @brief Obtener la instancia del generador de números, al ser un singleton.
+		  *
+		  * @post Si no existia una instancia del generador, se crea una con una semilla aleatoria.
+		  */
+
 		static Random * getInstance();
+
+		/**
+		  * @brief Obtener la instancia del generador de números, al ser un singleton.
+		  *
+		  * @param seed Semilla a usar al pedir por primera vez el singleton.
+		  *
+		  * @post Si ya existe una instancia no se establecerá la semilla.
+		  */
+
 		static Random * getInstance(const unsigned seed);
+
+		/**
+		  * @brief Destructor de la clase Random
+		  *
+		  */
 
 		~Random();
 
+		/**
+		  * @brief Constructor de copia. ELIMINADO AL SER UNA CLASE SINGLETON
+		  *
+		  */
+
+
 		Random(const Random & otro) = delete;
+
+		/**
+		  * @brief Operador =. ELIMINADO AL SER UNA CLASE SINGLETON
+		  *
+		  */
 		Random & operator = (const Random & otro) = delete;
 
 		/**
