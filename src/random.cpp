@@ -46,9 +46,9 @@ float Random::getFloat(const float HIGH){
 
 
 
-// Generar numero entre LOW y HIGH, ambos incluidos
+// Generar numero entre LOW y HIGH, HIGH no incluido
 int Random::getInt(const int LOW, const int HIGH){
-	return (int) (LOW + (HIGH-(LOW)+1) * getFloat());
+	return (int) (LOW + (HIGH-(LOW)) * getFloat());
 }
 
 int Random::getInt(const int HIGH){
