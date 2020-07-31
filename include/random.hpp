@@ -35,7 +35,7 @@ class Random{
 		unsigned long SEED;
 		const unsigned long int MASK = 2147483647L;
 		const unsigned long int PRIME = 65539L;
-		const double SCALE = 0.4656612875e-9D;
+		const double SCALE = 0.4656612875e-9;
 
 
 		/**
@@ -62,7 +62,7 @@ class Random{
 		  * @post Si no existia una instancia del generador, se crea una con una semilla aleatoria.
 		  */
 
-		static Random * getInstance();
+		static Random & getInstance();
 
 		/**
 		  * @brief Obtener la instancia del generador de números, al ser un singleton.
@@ -72,7 +72,7 @@ class Random{
 		  * @post Si ya existe una instancia no se establecerá la semilla.
 		  */
 
-		static Random * getInstance(const unsigned seed);
+		static Random & getInstance(const unsigned long seed);
 
 		/**
 		  * @brief Destructor de la clase Random
