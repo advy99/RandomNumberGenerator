@@ -31,12 +31,11 @@ class Random{
 		  *
 		  */
 
-		static Random * instancia;
-		unsigned long SEED;
-		const unsigned long int MASK = 2147483647L;
-		const unsigned long int PRIME = 65539L;
-		const double SCALE = 0.4656612875e-9;
-
+		static unsigned long SEED;
+		static const unsigned long int MASK;
+		static const unsigned long int PRIME;
+		static const double SCALE;
+		static bool inicializado;
 
 		/**
 		  * @brief Constructor sin parámetros que iniciliza la semilla a un valor aleatorio
@@ -45,34 +44,12 @@ class Random{
 		Random();
 
 
-		/**
-		  * @brief Constructor con un parámetro, el valor de la semilla.
-		  *
-		  * @param seed Valor de la semilla
-		  */
-
-		Random(const unsigned long seed);
-
 
 	public:
 
-		/**
-		  * @brief Obtener la instancia del generador de números, al ser un singleton.
-		  *
-		  * @post Si no existia una instancia del generador, se crea una con una semilla aleatoria.
-		  */
+		static void setSeed(const unsigned long seed);
 
-		static Random & getInstance();
 
-		/**
-		  * @brief Obtener la instancia del generador de números, al ser un singleton.
-		  *
-		  * @param seed Semilla a usar al pedir por primera vez el singleton.
-		  *
-		  * @post Si ya existe una instancia no se establecerá la semilla.
-		  */
-
-		static Random & getInstance(const unsigned long seed);
 
 		/**
 		  * @brief Destructor de la clase Random
@@ -101,7 +78,7 @@ class Random{
 		  * @return Valor actual de la semilla
 		  */
 
-		unsigned long getSeed() const;
+		static unsigned long getSeed() ;
 
 
 		/**
@@ -110,7 +87,7 @@ class Random{
 		  * @return Número aleatorio entre [0, 1[
 		  */
 
-		float getFloat();
+		static float getFloat();
 
 
 		/**
@@ -122,7 +99,7 @@ class Random{
 		  * @return Número real aleatorio entre [LOW, HIGH[
 		  */
 
-		float getFloat(const float LOW, const float HIGH);
+		static float getFloat(const float LOW, const float HIGH);
 
 		/**
 		  * @brief Generar un valor real aleatorio entre 0 y un valor dado
@@ -132,7 +109,7 @@ class Random{
 		  * @return Número real aleatorio entre [0, HIGH[
 		  */
 
-		float getFloat(const float HIGH);
+		static float getFloat(const float HIGH);
 
 
 		/**
@@ -144,7 +121,7 @@ class Random{
 		  * @return Número entero aleatorio entre [LOW, HIGH[
 		  */
 
-		int getInt(const int LOW, const int HIGH);
+		static int getInt(const int LOW, const int HIGH);
 
 		/**
 		  * @brief Generar un valor entero aleatorio entre 0 y un valor dado
@@ -154,7 +131,7 @@ class Random{
 		  * @return Número entero aleatorio entre [0, HIGH[
 		  */
 
-		int getInt(const int HIGH);
+		static int getInt(const int HIGH);
 
 };
 

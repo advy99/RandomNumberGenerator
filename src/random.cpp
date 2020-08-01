@@ -1,33 +1,26 @@
 #include <ctime>
 #include "random.hpp"
+#include <iostream>
 
-Random & Random::getInstance(){
-	static Random instancia;
-
-	return instancia;
-}
-
-Random & Random::getInstance(const unsigned long seed){
-	static Random instancia(seed);
-
-	return instancia;
-}
-
-Random::Random():SEED(std::time(NULL)){
-	instancia = nullptr;
-}
-
-Random::Random(const unsigned long semilla):SEED(semilla){
-	instancia = nullptr;
-}
-
-Random::~Random(){
-	if (instancia != nullptr){
-		delete instancia;
+void Random::setSeed(const unsigned long semilla){
+	if ( !inicializado ){
+		SEED = semilla;
+		inicializado = true;
+	} else {
+		std::cerr << "WARNING: Intentando inicializar dos veces el generador de aleatorios, no hacemos nada" << std::endl;
 	}
 }
 
-unsigned long Random::getSeed() const{
+
+Random::Random(){
+
+}
+
+
+Random::~Random(){
+}
+
+unsigned long Random::getSeed(){
 	return SEED;
 }
 
@@ -55,4 +48,8 @@ int Random::getInt(const int HIGH){
 	return getInt(0, HIGH);
 }
 
-Random * Random::instancia = nullptr;
+const double Random::SCALE = 0.4656612875e-9;
+const unsigned long int Random::PRIME = 65539L;
+const unsigned long int Random::MASK = 2147483647L;
+unsigned long Random::SEED = std::time(NULL);
+bool Random::inicializado = false;
