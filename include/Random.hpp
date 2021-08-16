@@ -33,7 +33,7 @@ class Random{
 		  *
 		  */
 
-		inline static std::mt19937 generator_;
+		static inline std::mt19937 generator_;
 
 
 		Random() = delete;
