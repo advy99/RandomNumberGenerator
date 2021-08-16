@@ -1,5 +1,5 @@
 /**
-  * @file random.hpp
+  * \@file random.hpp
   * @brief Fichero cabecera de la clase Random
   *
   */
@@ -10,12 +10,14 @@
 /**
   *  @brief Clase Random
   *
-  * Una instancia del tipo Random será un generador de números aleatorios.
+  * Una instancia del tipo Random será un generador modular de números aleatorios.
   *
   *
   * @author Antonio David Villegas Yeguas
   * @date Julio 2020
   */
+
+#include <random>
 
 
 class Random{
@@ -31,21 +33,23 @@ class Random{
 		  *
 		  */
 
-		static unsigned long SEED;
-		static const unsigned long int MASK;
-		static const unsigned long int PRIME;
-		static const double SCALE;
-		static bool inicializado;
+		static std::mt19937 generador_;
 
 		/**
 		  * @brief Constructor sin parámetros que iniciliza la semilla a un valor aleatorio
 		  */
 
-		Random();
+		Random() = delete;
 
 
 
 	public:
+
+		/**
+		 * @brief Inicializar la semilla
+		 *
+		 * @param seed Nueva semilla para el generador
+		 */
 
 		static void setSeed(const unsigned long seed);
 
@@ -71,14 +75,6 @@ class Random{
 		  *
 		  */
 		Random & operator = (const Random & otro) = delete;
-
-		/**
-		  * @brief Obtener el valor de la semilla
-		  *
-		  * @return Valor actual de la semilla
-		  */
-
-		static unsigned long getSeed() ;
 
 
 		/**
@@ -132,6 +128,16 @@ class Random{
 		  */
 
 		static int getInt(const int HIGH);
+
+
+		/**
+		  * @brief Obtener el generador de aleatorios que se está utilizando
+		  *
+		  *
+		  * @return Generador de aleatorios que se está utilizando
+		  */
+
+		static std::mt19937 getGenerador();
 
 };
 
