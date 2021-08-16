@@ -33,7 +33,7 @@ class Random{
 		  *
 		  */
 
-		static std::mt19937 generador_;
+		static std::mt19937 generator_;
 
 		/**
 		  * @brief Constructor sin parámetros que iniciliza la semilla a un valor aleatorio
@@ -51,7 +51,7 @@ class Random{
 		 * @param seed Nueva semilla para el generador
 		 */
 
-		static void setSeed(const unsigned long seed);
+		static void set_seed(const unsigned long seed);
 
 
 
@@ -83,7 +83,7 @@ class Random{
 		  * @return Número aleatorio entre [0, 1[
 		  */
 
-		static float getFloat();
+		static double next_float();
 
 
 		/**
@@ -95,7 +95,7 @@ class Random{
 		  * @return Número real aleatorio entre [LOW, HIGH[
 		  */
 
-		static float getFloat(const float LOW, const float HIGH);
+		static double next_float(const double LOW, const double HIGH);
 
 		/**
 		  * @brief Generar un valor real aleatorio entre 0 y un valor dado
@@ -105,7 +105,7 @@ class Random{
 		  * @return Número real aleatorio entre [0, HIGH[
 		  */
 
-		static float getFloat(const float HIGH);
+		static double next_float(const double HIGH);
 
 
 		/**
@@ -117,7 +117,7 @@ class Random{
 		  * @return Número entero aleatorio entre [LOW, HIGH[
 		  */
 
-		static int getInt(const int LOW, const int HIGH);
+		static int next_int(const int LOW, const int HIGH);
 
 		/**
 		  * @brief Generar un valor entero aleatorio entre 0 y un valor dado
@@ -127,7 +127,7 @@ class Random{
 		  * @return Número entero aleatorio entre [0, HIGH[
 		  */
 
-		static int getInt(const int HIGH);
+		static int next_int(const int HIGH);
 
 
 		/**
@@ -137,7 +137,7 @@ class Random{
 		  * @return Generador de aleatorios que se está utilizando
 		  */
 
-		static std::mt19937 getGenerador();
+		static std::mt19937 get_generator();
 
 };
 
