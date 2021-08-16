@@ -1,23 +1,23 @@
 #include <iostream>
-#include "random.hpp"
+#include "Random.hpp"
 
 int main(int argc, char ** argv){
 
-	Random::setSeed(123456789);
 
-	Random::setSeed(12312);
+	unsigned long long seed = 0;
+	
+	std::cout << "Enter a seed: ";
+	std::cin >> seed;
 
-	std::cout << Random::getSeed() << std::endl;
+	Random::set_seed(seed);
 
 
-	std::cout << Random::getSeed() << std::endl;
-
-	int aleatorio = Random::getInt(1,10);
+	int aleatorio = Random::next_int(3,7);
 
 	std::cout << aleatorio << std::endl;
 
 	for (int i = 0; i < aleatorio; i++){
-		std::cout << Random::getFloat(aleatorio) << std::endl;
+		std::cout << Random::next_float(aleatorio) << std::endl;
 	}
 
 	return 0;
