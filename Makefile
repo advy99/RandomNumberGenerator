@@ -6,7 +6,7 @@ OBJ      = $(HOME)/obj
 
 FLAGS = --std=c++17 -O3 -Wall
 
-all: $(BIN)/prueba
+all: crear-carpetas $(BIN)/prueba
 
 $(BIN)/prueba:  $(OBJ)/main.o
 	g++ $^ -o $@
@@ -19,4 +19,8 @@ clean:
 	-rm $(OBJ)/*.o
 	-rm $(BIN)/*
 
+crear-carpetas:
+	@printf "\e[36mCreando carpetas necesarias\e[0m\n"
+	-@mkdir $(OBJ) 2> /dev/null || printf "\t\e[33mYa existe la carpeta $(OBJ)\n"
+	-@mkdir $(BIN) 2> /dev/null || printf "\t\e[33mYa existe la carpeta $(BIN)\n"
 
