@@ -1,20 +1,17 @@
-HOME     = .
-BIN      = $(HOME)/bin
-INC	   = $(HOME)/include
-SRC      = $(HOME)/src
+HOME = .
+BIN  = $(HOME)/bin
+TST  = $(HOME)/test
 
 FLAGS = --std=c++17 -O2 -Wall
 
-all: crear-carpetas $(BIN)/prueba
+all: create-dirs $(BIN)/test
 
-$(BIN)/prueba:  $(SRC)/main.cpp
-	g++ $(FLAGS) -I $(INC) $^ -o $@
-
+$(BIN)/test: $(TST)/main.cpp
+	g++ $(FLAGS) -I./ $^ -o $@
 
 clean:
 	-rm $(BIN)/*
 
-crear-carpetas:
-	@printf "\e[36mCreando carpetas necesarias\e[0m\n"
-	-@mkdir $(BIN) 2> /dev/null || printf "\t\e[33mYa existe la carpeta $(BIN)\n\e[0m"
-
+create-dirs:
+	@printf "\e[36mCreating required directories...\e[0m\n"
+	-@mkdir -p $(BIN) 2> /dev/null || printf "\t\e[33mDirectory %s already exists!\n\e[0m" "$(BIN)"
