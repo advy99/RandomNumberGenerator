@@ -1,13 +1,13 @@
 HOME = .
 BIN  = $(HOME)/bin
 INC  = $(HOME)/include
-SRC  = $(HOME)/src
+TST  = $(HOME)/test
 
 FLAGS = --std=c++17 -O2 -Wall
 
 all: create-dirs $(BIN)/test
 
-$(BIN)/test: $(SRC)/main.cpp
+$(BIN)/test: $(TST)/main.cpp
 	g++ $(FLAGS) -I $(INC) $^ -o $@
 
 clean:
