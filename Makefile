@@ -1,6 +1,5 @@
 HOME = .
 BIN  = $(HOME)/bin
-INC  = $(HOME)/include
 TST  = $(HOME)/test
 
 FLAGS = --std=c++17 -O2 -Wall
@@ -8,7 +7,7 @@ FLAGS = --std=c++17 -O2 -Wall
 all: create-dirs $(BIN)/test
 
 $(BIN)/test: $(TST)/main.cpp
-	g++ $(FLAGS) -I $(INC) $^ -o $@
+	g++ $(FLAGS) -I./ $^ -o $@
 
 clean:
 	-rm $(BIN)/*
