@@ -1,21 +1,17 @@
 # RandomNumberGenerator
 
-Tras varias prácticas utilizando un generador de números aleatorios distinto al disponible en cstdlib para C++, escrito en C (y con una implementación muy mejorable, tenía la semilla como variable global que podías modificar en cualquier momento), ya que la longitud de la secuencia de aleatorios de este era muy pequeña, y de cara a utilizarlo en proyectos más grandes (mi TFG básicamente), he decidido implementarlo como una clase de C++, donde no puedes modificar la semilla y esta embebido en una clase para que sea más cómodo.
+After many assignments using a different random number generator to the one available in C++'s stdlib, which was written in C (with an greatly improvable implementation, the seed was a global variable you could modify anytime), I've decided to implement it as a C++ class where the seed is a non-mutable private member with bigger projects, like my degree's thesis, in mind.
 
+## Structure
 
-# Estructura
+RandomNumberGenerator is very simple.
+You just need to include `random.hpp`, which contains the class's headers and its inline member functions.
 
-Es bastante simple, cuenta con un hpp en la carpeta `include` y un cpp en la carpeta `src`:
+You can build a quick test with `make` from `test/main.cpp`.
 
-- `random.hpp`: Cabecera de la clase, con atributos y métodos.
-- `random.cpp`: Implementación de la clase y sus métodos.
+## Buy me a coffee!
 
-En la carpeta `src` también se encuentra el fichero `main.cpp` con el que hay algunos ejemplos y pruebas.
-
-## Invítame a un café
-
-Todo mi trabajo esta publicado como software libre, aun así, si te ha resultado util y quieres invitarme a un café:
+All my work is published as free software.
+If you find it useful and want to buy me a coffee, you can do so here:
 
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y81WT9M)
-
-
