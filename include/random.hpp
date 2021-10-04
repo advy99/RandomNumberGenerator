@@ -43,9 +43,9 @@ class Random{
 	public:
 
 		/**
-		 * @brief Inicializar la semilla
+		 * @brief Inicializar la seed
 		 *
-		 * @param seed Nueva semilla para el generador
+		 * @param seed Nueva seed para el generador
 		 */
 
 		static inline void set_seed(const unsigned long seed);
@@ -140,8 +140,8 @@ class Random{
 
 
 
-void Random :: set_seed(const unsigned long semilla){
-	generator_.seed(semilla);
+void Random :: set_seed(const unsigned long seed){
+	generator_.seed(seed);
 }
 
 double Random :: next_float(){
