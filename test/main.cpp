@@ -2,12 +2,12 @@
 #include "random.hpp"
 
 int main(int argc, char ** argv){
-	unsigned long long seed = 0;
+	if (argc > 1) {
+		unsigned long long seed = atoll(argv[1]);
 
-	std::cout << "Enter a seed: ";
-	std::cin >> seed;
-
-	Random::set_seed(seed);
+		Random::set_seed(seed);
+	}
+	
 	int random_number = Random::next_int(3,7);
 
 	std::cout << random_number << std::endl;
