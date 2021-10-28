@@ -16,7 +16,7 @@
 
 class Random{
 	private:
-		static inline std::mt19937 generator_;
+		static inline std::mt19937 generator_{std::random_device()()};
 		Random() = delete;
 
 	public:
