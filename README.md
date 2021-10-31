@@ -7,7 +7,14 @@ After many assignments using a different random number generator to the one avai
 RandomNumberGenerator is very simple.
 You just need to include `random.hpp`, which contains the class's headers and its inline member functions.
 
-You can build a quick test with `make` from `test/main.cpp`.
+## Testing
+
+You can build a quick test with `make` from `test/main.cpp`. How to use it:
+
+```shell
+bin/test [seed]
+```
+- `seed` : optional parameter that sets the generator seed. Must be un integer.
 
 ## Buy me a coffee!
 
